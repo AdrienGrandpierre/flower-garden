@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'screens/main_shell.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const FlowerGardenApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class FlowerGardenApp extends StatelessWidget {
+  const FlowerGardenApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Flower Garden',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(colorSchemeSeed: Colors.green),
+      locale: const Locale('fr'),
+      supportedLocales: const [Locale('fr')],
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      home: const MainShell(),
     );
   }
 }
